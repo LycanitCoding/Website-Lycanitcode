@@ -2,9 +2,9 @@ name: Code Quality1
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ Dev ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ Dev ]
 
 jobs:
   lint-backend:
