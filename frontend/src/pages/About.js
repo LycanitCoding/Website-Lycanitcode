@@ -92,7 +92,7 @@ const About = () => {
           <div className="education-item">
             <h3>Self-Taught Developer</h3>
             <p>
-              Continuously learning and improving my skills through practical projects and staying updated with the latest technologies.
+              Continuously learning and improving my skills through practical projects and staying updated with the latest technologies in the software development industry.
             </p>
           </div>
           <div className="education-item">
