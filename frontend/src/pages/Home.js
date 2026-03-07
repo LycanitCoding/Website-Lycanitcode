@@ -36,7 +36,7 @@ const Home = () => {
           <div className="hero-image">
             <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Logo" className="logo-image" /> 
           </div>
-          <p className="hero-subtitle">A developer in Development</p>
+          <p className="hero-subtitle">A Developer in Development</p>
         </div>
       </div>
 
