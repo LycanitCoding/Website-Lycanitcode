@@ -84,9 +84,9 @@ const About = () => {
         <div className="about-section">
           <h2>Education</h2>
           <div className="education-item">
-            <h3>WGU</h3>
+            <h3>Western Governors University</h3>
             <p>
-              Currently enrolled in Comuter Science
+              Currently enrolled in Computer Science
             </p>
           </div>
           <div className="education-item">
