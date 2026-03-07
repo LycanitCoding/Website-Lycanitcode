@@ -1,0 +1,9 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--dark-blue);
+  font-size: 24px;
+  color: var(--royal-blue);
+}

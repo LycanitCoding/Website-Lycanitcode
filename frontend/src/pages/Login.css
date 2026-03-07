@@ -1,0 +1,124 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--black) 0%, var(--dark-blue) 50%, var(--royal-blue) 100%);
+  padding: 20px;
+}
+
+.login-box {
+  background: rgba(26, 26, 46, 0.95);
+  border: 2px solid var(--royal-blue);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(65, 105, 225, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.login-title {
+  color: var(--royal-blue);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: var(--royal-blue);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 2px solid var(--royal-blue);
+  background-color: #2a2a3e;
+  color: var(--white);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--royal-purple);
+  box-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+}
+
+.form-group input::placeholder {
+  color: #888;
+}
+
+.login-button {
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-purple) 100%);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+.login-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(65, 105, 225, 0.5);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: rgba(255, 76, 76, 0.1);
+  border: 1px solid #ff4c4c;
+  color: #ff7f7f;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.demo-credentials {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(65, 105, 225, 0.3);
+  background-color: rgba(106, 5, 114, 0.1);
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.demo-title {
+  color: var(--royal-purple);
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.demo-credentials p {
+  color: #bbb;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.demo-credentials strong {
+  color: var(--royal-blue);
+}

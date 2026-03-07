@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --royal-blue: #4169E1;
+  --dark-blue: #1a1a2e;
+  --royal-purple: #6a0572;
+  --black: #0f0f0f;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  color: var(--royal-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--royal-purple);
+}
+
+button {
+  background-color: var(--royal-blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--royal-purple);
+}
+
+input, textarea, select {
+  background-color: #2a2a3e;
+  color: var(--white);
+  border: 1px solid var(--royal-blue);
+  padding: 10px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #888;
+}
