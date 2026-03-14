@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:15-alpine
@@ -23,6 +21,7 @@ services:
     build:
       context: ./backend
       dockerfile: ../docker/Dockerfile.backend
+    image: zestyzwei/myrepo-backend:latest
     container_name: portfolio_backend
     environment:
       PORT: 5000
@@ -45,6 +44,7 @@ services:
     build:
       context: ./frontend
       dockerfile: ../docker/Dockerfile.frontend
+    image: zestyzwei/myrepo-frontend:latest
     container_name: portfolio_frontend
     environment:
       REACT_APP_API_URL: http://localhost:5000
