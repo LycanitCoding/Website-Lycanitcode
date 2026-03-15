@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import './Home.css';
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
   const fetchRepositories = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/github/repos', {
+      const response = await api.get('/github/repos', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
         }

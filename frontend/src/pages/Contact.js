@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import './Contact.css';
 
 const Contact = () => {
@@ -28,8 +28,8 @@ const Contact = () => {
     setSuccess('');
 
     try {
-      await axios.post(
-        'http://localhost:5000/api/contact/send',
+      await api.post(
+        '/contact/send',
         formData,
         {
           headers: {
