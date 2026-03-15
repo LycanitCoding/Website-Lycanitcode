@@ -1,4 +1,4 @@
--- Initialize PostgreSQL database with tables and seed data 1
+-- Initialize PostgreSQL database with tables and seed data
 
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
