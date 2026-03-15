@@ -25,5 +25,8 @@ CREATE INDEX IF NOT EXISTS idx_contacts_created_at ON contacts(created_at);
 
 -- Seed test user (username: testuser, password: test123, hashed with bcryptjs rounds=10)
 INSERT INTO users (username, email, password) 
-VALUES ('testuser', 'test@example.com', '$2a$10$EJXMTmIIgkeO9LbW0L/qm.VnOzGlRmtePamwdl17HEdihUotDATwG')
-ON CONFLICT (username) DO NOTHING;
+VALUES ('testuser', 'test@example.com', '$2a$10$VBbXhPbxBsyxjKVL2DEhs.Fya05ITRrTdRd0EZlk6c/VGiYtDTUvm')
+ON CONFLICT (username) DO UPDATE
+SET
+    email = EXCLUDED.email,
+    password = EXCLUDED.password;
