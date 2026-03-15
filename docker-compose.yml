@@ -32,7 +32,7 @@ services:
       DB_PASSWORD: postgres
       DB_NAME: portfolio_db
       JWT_SECRET: portfolio-app-secret-key-change-in-production
-      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     ports:
       - "5000:5000"
     depends_on:
@@ -46,8 +46,6 @@ services:
       dockerfile: ../docker/Dockerfile.frontend
     image: zestyzwei/myrepo-frontend:latest
     container_name: portfolio_frontend
-    environment:
-      REACT_APP_API_URL: http://localhost:5000
     ports:
       - "3000:3000"
     depends_on:
