@@ -12,6 +12,13 @@ jobs:
           [ -n "${{ secrets.PRODUCTION_HOST }}" ] || (echo "Missing PRODUCTION_HOST" && exit 1)
           [ -n "${{ secrets.PRODUCTION_USER }}" ] || (echo "Missing PRODUCTION_USER" && exit 1)
           [ -n "${{ secrets.PRODUCTION_SSH_KEY }}" ] || (echo "Missing PRODUCTION_SSH_KEY" && exit 1)
+          [ -n "${{ secrets.PRODUCTION_SSH_PASSPHRASE }}" ] || (echo "Missing PRODUCTION_SSH_PASSPHRASE" && exit 1)
+
+      - name: Validate DNS resolution
+        run: |
+          HOST="${{ secrets.PRODUCTION_HOST }}"
+          echo "Host length: ${#HOST}"
+          getent hosts "$HOST" || nslookup "$HOST" || (echo "Host does not resolve" && exit 1)
 
       - name: Test SSH Connection
         uses: appleboy/ssh-action@v1.0.0
@@ -19,6 +26,10 @@ jobs:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USER }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          passphrase: ${{ secrets.PRODUCTION_SSH_PASSPHRASE }}
+          port: 22
+          timeout: 30s
+          command_timeout: 60s
           script: |
             echo "SSH connection successful"
             hostname
