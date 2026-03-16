@@ -134,7 +134,6 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/myrepo-backend:latest
             ${{ secrets.DOCKER_USERNAME }}/myrepo-backend:${{ github.sha }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/myrepo-backend:latest
           cache-to: type=inline
 
       - name: Build and push frontend image
@@ -146,7 +145,6 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/myrepo-frontend:latest
             ${{ secrets.DOCKER_USERNAME }}/myrepo-frontend:${{ github.sha }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/myrepo-frontend:latest
           cache-to: type=inline
 
   deploy-production:
