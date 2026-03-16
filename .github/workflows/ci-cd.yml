@@ -108,7 +108,7 @@ jobs:
     name: Build & Push Docker Images
     runs-on: ubuntu-latest
     needs: [test-backend, test-frontend]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout code
@@ -151,7 +151,7 @@ jobs:
     name: Deploy to Production (lycanitcoding.com)
     runs-on: ubuntu-latest
     needs: [build-and-push]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     environment:
       name: production
       url: https://lycanitcoding.com
@@ -179,7 +179,7 @@ jobs:
             chmod 600 .env
 
             # Pull latest code
-            git pull origin main
+            git pull origin master
 
             # Pull updated Docker images from Docker Hub
             docker-compose pull
