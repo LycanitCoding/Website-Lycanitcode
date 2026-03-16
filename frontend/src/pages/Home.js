@@ -4,9 +4,11 @@ import api from '../api';
 import './Home.css';
 
 const Home = () => {
+  const INITIAL_REPO_COUNT = 9;
   const [repositories, setRepositories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showAllRepos, setShowAllRepos] = useState(false);
 
   useEffect(() => {
     fetchRepositories();
@@ -29,6 +31,12 @@ const Home = () => {
       setLoading(false);
     }
   };
+
+  const visibleRepositories = showAllRepos
+    ? repositories
+    : repositories.slice(0, INITIAL_REPO_COUNT);
+
+  const hasMoreRepos = repositories.length > INITIAL_REPO_COUNT;
 
   return (
     <div className="home-container">
@@ -56,39 +64,53 @@ const Home = () => {
             <p>No repositories found.</p>
           </div>
         ) : (
-          <div className="repos-grid">
-            {repositories.map((repo) => (
-              <div key={repo.id} className="repo-card">
-                <div className="repo-header">
-                  <h3 className="repo-name">{repo.name}</h3>
-                  <span className={`repo-badge ${repo.private ? 'private' : 'public'}`}>
-                    {repo.private ? 'Private' : 'Public'}
-                  </span>
-                </div>
-                
-                <p className="repo-description">
-                  {repo.description || 'No description provided'}
-                </p>
-                
-                <div className="repo-stats">
-                  {repo.language && (
-                    <span className="repo-language">
-                      <span className="language-dot"></span>
-                      {repo.language}
+          <>
+            <div className="repos-grid">
+              {visibleRepositories.map((repo) => (
+                <div key={repo.id} className="repo-card">
+                  <div className="repo-header">
+                    <h3 className="repo-name">{repo.name}</h3>
+                    <span className={`repo-badge ${repo.private ? 'private' : 'public'}`}>
+                      {repo.private ? 'Private' : 'Public'}
                     </span>
-                  )}
-                  <span className="repo-stars">⭐ {repo.stars}</span>
+                  </div>
+
+                  <p className="repo-description">
+                    {repo.description || 'No description provided'}
+                  </p>
+
+                  <div className="repo-stats">
+                    {repo.language && (
+                      <span className="repo-language">
+                        <span className="language-dot"></span>
+                        {repo.language}
+                      </span>
+                    )}
+                    <span className="repo-stars">⭐ {repo.stars}</span>
+                  </div>
+
+                  <Link
+                    to={`/repositories/${encodeURIComponent(repo.name)}`}
+                    className="repo-link"
+                  >
+                    View Repository →
+                  </Link>
                 </div>
-                
-                <Link
-                  to={`/repositories/${encodeURIComponent(repo.name)}`}
-                  className="repo-link"
+              ))}
+            </div>
+
+            {hasMoreRepos && (
+              <div className="repos-actions">
+                <button
+                  type="button"
+                  className="view-more-button"
+                  onClick={() => setShowAllRepos((prev) => !prev)}
                 >
-                  View Repository →
-                </Link>
+                  {showAllRepos ? 'View Less' : `View More (${repositories.length - INITIAL_REPO_COUNT})`}
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </div>
     </div>

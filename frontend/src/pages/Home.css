@@ -117,6 +117,36 @@
   gap: 25px;
 }
 
+.repos-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.view-more-button {
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-purple) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 6px 16px rgba(65, 105, 225, 0.35);
+}
+
+.view-more-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(65, 105, 225, 0.45);
+}
+
+.view-more-button:active {
+  transform: translateY(0);
+  opacity: 0.95;
+}
+
 .repo-card {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   border: 2px solid var(--royal-blue);
@@ -239,5 +269,10 @@
 
   .repos-grid {
     grid-template-columns: 1fr;
+  }
+
+  .view-more-button {
+    width: 100%;
+    max-width: 320px;
   }
 }
