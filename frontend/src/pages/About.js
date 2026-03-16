@@ -12,7 +12,7 @@ const About = () => {
         <div className="about-section">
           <h2>Welcome</h2>
           <p>
-            I'm Lycanit Coding, an aspiring full stack developer with a passion for building modern web applications. Thus far I have worked for 5 years in the IT industry, starting as a field technician and working my way up to my current position as a desktop analyst. Recently I have begun to focus on a transition into an software develpment and automations role to pursue my passion for coding and creating innovative solutions. I am excited to share my progress, projects, and skills with you through this portfolio website. Thank you for visiting!
+            I'm Lycanit Coding!!! an aspiring full stack developer with a passion for building modern web applications. Thus far I have worked for 5 years in the IT industry, starting as a field technician and working my way up to my current position as a desktop analyst. Recently I have begun to focus on a transition into an software develpment and automations role to pursue my passion for coding and creating innovative solutions. I am excited to share my progress, projects, and skills with you through this portfolio website. Thank you for visiting!
           </p>
         </div>
 
