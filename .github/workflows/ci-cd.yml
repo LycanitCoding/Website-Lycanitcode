@@ -119,14 +119,14 @@ jobs:
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
           REPO_SLUG: ${{ github.repository }}
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USER }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
           passphrase: ${{ secrets.PRODUCTION_SSH_PASSPHRASE }}
-          envs: JWT_SECRET,DB_PASSWORD,GITHUB_TOKEN,REPO_SLUG
+          envs: JWT_SECRET,DB_PASSWORD,REPO_TOKEN,REPO_SLUG
           script: |
             set -e
             cd ~/code/Website-Lycanitcode
@@ -134,11 +134,11 @@ jobs:
             # Write production environment file from GitHub secrets
             echo "JWT_SECRET=${JWT_SECRET}" > .env
             echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
-            echo "GITHUB_TOKEN=${GITHUB_TOKEN}" >> .env
+            echo "GITHUB_TOKEN=${REPO_TOKEN}" >> .env
             chmod 600 .env
 
             # Pull latest code
-            git -c url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf="git@github.com:" pull origin master
+            git -c url."https://x-access-token:${REPO_TOKEN}@github.com/".insteadOf="git@github.com:" pull origin master
 
             # Support both Compose v1 (docker-compose) and v2 (docker compose)
             if command -v docker-compose >/dev/null 2>&1; then
