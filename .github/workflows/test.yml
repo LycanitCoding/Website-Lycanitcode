@@ -5,7 +5,14 @@ on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment: production
     steps:
+      - name: Validate required secrets exist
+        run: |
+          [ -n "${{ secrets.PRODUCTION_HOST }}" ] || (echo "Missing PRODUCTION_HOST" && exit 1)
+          [ -n "${{ secrets.PRODUCTION_USER }}" ] || (echo "Missing PRODUCTION_USER" && exit 1)
+          [ -n "${{ secrets.PRODUCTION_SSH_KEY }}" ] || (echo "Missing PRODUCTION_SSH_KEY" && exit 1)
+
       - name: Test SSH Connection
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -13,6 +20,6 @@ jobs:
           username: ${{ secrets.PRODUCTION_USER }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
           script: |
-            echo "✅ SSH connection successful"
+            echo "SSH connection successful"
             hostname
             whoami
