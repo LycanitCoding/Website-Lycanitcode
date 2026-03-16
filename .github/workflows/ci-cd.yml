@@ -120,12 +120,13 @@ jobs:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_SLUG: ${{ github.repository }}
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USER }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
           passphrase: ${{ secrets.PRODUCTION_SSH_PASSPHRASE }}
-          envs: JWT_SECRET,DB_PASSWORD,GITHUB_TOKEN
+          envs: JWT_SECRET,DB_PASSWORD,GITHUB_TOKEN,REPO_SLUG
           script: |
             set -e
             cd ~/code/Website-Lycanitcode
@@ -133,11 +134,10 @@ jobs:
             # Write production environment file from GitHub secrets
             echo "JWT_SECRET=${JWT_SECRET}" > .env
             echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
-            echo "GITHUB_TOKEN=${GITHUB_TOKEN}" >> .env
             chmod 600 .env
 
             # Pull latest code
-            git pull origin master
+            git -c url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf="git@github.com:" pull origin master
 
             # Build from latest source on the server and restart services
             docker-compose up -d --build --remove-orphans
