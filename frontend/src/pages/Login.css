@@ -21,9 +21,45 @@
 .login-title {
   color: var(--royal-blue);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 28px;
   text-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+}
+
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.switch-button {
+  background: rgba(65, 105, 225, 0.12);
+  border: 1px solid rgba(65, 105, 225, 0.45);
+  color: #c8d3ff;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.switch-button.active {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--royal-purple) 100%);
+  box-shadow: 0 4px 12px rgba(65, 105, 225, 0.35);
+  border-color: transparent;
+}
+
+.switch-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--royal-blue);
+}
+
+.switch-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .login-form {
@@ -91,6 +127,16 @@
   background-color: rgba(255, 76, 76, 0.1);
   border: 1px solid #ff4c4c;
   color: #ff7f7f;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success-message {
+  background-color: rgba(56, 196, 126, 0.14);
+  border: 1px solid #38c47e;
+  color: #9de8c3;
   padding: 12px;
   border-radius: 6px;
   font-size: 14px;
