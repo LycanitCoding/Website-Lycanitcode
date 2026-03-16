@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import RepoViewer from './pages/RepoViewer';
 import Navigation from './components/Navigation';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
@@ -74,6 +75,14 @@ function App() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Contact />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/repositories/:repoName"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <RepoViewer />
             </PrivateRoute>
           }
         />

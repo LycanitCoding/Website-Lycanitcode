@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api';
 import './Home.css';
 
@@ -79,14 +80,12 @@ const Home = () => {
                   <span className="repo-stars">⭐ {repo.stars}</span>
                 </div>
                 
-                <a
-                  href={repo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={`/repositories/${encodeURIComponent(repo.name)}`}
                   className="repo-link"
                 >
                   View Repository →
-                </a>
+                </Link>
               </div>
             ))}
           </div>
