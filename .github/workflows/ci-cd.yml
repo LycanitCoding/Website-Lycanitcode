@@ -176,7 +176,7 @@ jobs:
           envs: JWT_SECRET,DB_PASSWORD,GITHUB_TOKEN
           script: |
             set -e
-            cd /home/ubuntu/projectfullstack
+            cd /code/Website-Lycanitcode
 
             # Write production environment file from GitHub secrets
             echo "JWT_SECRET=${JWT_SECRET}" > .env
