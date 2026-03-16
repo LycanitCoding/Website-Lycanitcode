@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 const GITHUB_USERNAME = 'lycanitcoding';
-const GITHUB_TOKEN = process.env.REPO_TOKEN; // (optional, for private repos)
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.REPO_TOKEN; // (optional, for private repos)
 
 // Middleware to verify token
 const verifyToken = (req, res, next) => {
@@ -27,6 +27,7 @@ const verifyToken = (req, res, next) => {
 // Get repositories
 router.get('/repos', verifyToken, async (req, res) => {
   try {
+    res.set('Cache-Control', 'no-store');
     const headers = GITHUB_TOKEN ? { Authorization: `token ${GITHUB_TOKEN}` } : {};
 
     // Fetch public repos
