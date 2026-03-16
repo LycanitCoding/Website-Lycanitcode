@@ -134,6 +134,7 @@ jobs:
             # Write production environment file from GitHub secrets
             echo "JWT_SECRET=${JWT_SECRET}" > .env
             echo "DB_PASSWORD=${DB_PASSWORD}" >> .env
+            echo "GITHUB_TOKEN=${GITHUB_TOKEN}" >> .env
             chmod 600 .env
 
             # Pull latest code
