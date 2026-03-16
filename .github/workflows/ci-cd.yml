@@ -124,6 +124,7 @@ jobs:
           host: ${{ secrets.PRODUCTION_HOST }}
           username: ${{ secrets.PRODUCTION_USER }}
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          passphrase: ${{ secrets.PRODUCTION_SSH_PASSPHRASE }}
           envs: JWT_SECRET,DB_PASSWORD,GITHUB_TOKEN
           script: |
             set -e
