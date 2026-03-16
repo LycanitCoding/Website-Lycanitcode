@@ -1,0 +1,254 @@
+.repo-viewer-page {
+  min-height: calc(100vh - 100px);
+  background: linear-gradient(180deg, #11131f 0%, #0d1220 100%);
+  padding: 32px 20px 40px;
+}
+
+.repo-viewer-header {
+  max-width: 1400px;
+  margin: 0 auto 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.repo-viewer-back {
+  display: inline-block;
+  color: #89a4ff;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.repo-viewer-back:hover {
+  color: var(--white);
+}
+
+.repo-viewer-title {
+  margin: 0;
+  color: var(--white);
+  font-size: 36px;
+}
+
+.repo-viewer-subtitle {
+  margin: 10px 0 0;
+  color: #9ca8c7;
+  max-width: 760px;
+}
+
+.repo-meta-card {
+  min-width: 140px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(18, 28, 52, 0.88);
+  border: 1px solid rgba(103, 139, 255, 0.28);
+  color: var(--white);
+}
+
+.repo-meta-label {
+  display: block;
+  color: #8ca3e6;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.repo-viewer-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 20px;
+  min-height: 720px;
+}
+
+.repo-sidebar,
+.repo-code-panel {
+  background: rgba(16, 23, 42, 0.92);
+  border: 1px solid rgba(112, 145, 255, 0.22);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+.repo-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(112, 145, 255, 0.14);
+  background: rgba(23, 33, 60, 0.88);
+}
+
+.repo-panel-header h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.repo-panel-header span {
+  color: #93a4d6;
+  font-size: 13px;
+}
+
+.repo-tree {
+  max-height: 650px;
+  overflow: auto;
+  padding: 10px 0;
+}
+
+.tree-node {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #d8e0ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 14px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tree-node:hover {
+  background: rgba(102, 139, 255, 0.12);
+}
+
+.tree-node.selected {
+  background: rgba(78, 118, 255, 0.22);
+  color: var(--white);
+}
+
+.tree-node-icon {
+  width: 16px;
+  color: #89a4ff;
+  flex-shrink: 0;
+}
+
+.tree-node-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-header {
+  align-items: center;
+}
+
+.repo-external-link {
+  color: #a9bcff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.repo-external-link:hover {
+  color: var(--white);
+}
+
+.code-viewer-wrapper {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 640px;
+  max-height: 760px;
+  overflow: auto;
+}
+
+.code-line-numbers {
+  padding: 18px 10px 18px 18px;
+  background: rgba(8, 13, 25, 0.72);
+  border-right: 1px solid rgba(112, 145, 255, 0.14);
+  color: #6678a8;
+  text-align: right;
+  user-select: none;
+}
+
+.code-line-numbers span {
+  display: block;
+  min-height: 1.5em;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.code-viewer {
+  margin: 0;
+  padding: 18px 20px;
+  color: #edf2ff;
+  background: rgba(10, 15, 28, 0.92);
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre;
+  overflow: visible;
+}
+
+.repo-viewer-loading,
+.repo-viewer-error {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 22px;
+  border-radius: 14px;
+  color: var(--white);
+}
+
+.repo-viewer-loading {
+  background: rgba(41, 59, 104, 0.32);
+  border: 1px solid rgba(112, 145, 255, 0.18);
+}
+
+.repo-viewer-error {
+  background: rgba(139, 26, 48, 0.28);
+  border: 1px solid rgba(255, 122, 139, 0.32);
+}
+
+.repo-viewer-loading.inline,
+.repo-viewer-error.inline {
+  margin: 20px;
+}
+
+@media (max-width: 960px) {
+  .repo-viewer-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .repo-tree {
+    max-height: 320px;
+  }
+
+  .code-viewer-wrapper {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .repo-viewer-page {
+    padding: 20px 14px 28px;
+  }
+
+  .repo-viewer-header {
+    flex-direction: column;
+  }
+
+  .repo-viewer-title {
+    font-size: 28px;
+  }
+
+  .repo-panel-header {
+    padding: 16px;
+  }
+
+  .repo-panel-header h2 {
+    font-size: 16px;
+  }
+
+  .code-viewer {
+    font-size: 12px;
+  }
+}
